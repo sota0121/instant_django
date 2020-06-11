@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 from users.models import User
 
@@ -16,6 +17,7 @@ class Item(models.Model):
     title = models.CharField(
         verbose_name='記事のタイトル',
         max_length=128,
+        default='sample title',
         blank=False,
         null=False,
     )
@@ -23,6 +25,7 @@ class Item(models.Model):
     # 投稿日付
     post_date = models.DateField(
         verbose_name='投稿日付',
+        default=timezone.now,
         blank=False,
         null=False,
     )
@@ -30,6 +33,7 @@ class Item(models.Model):
     # ハッシュタグ
     hashtag = models.CharField(
         verbose_name='#hashtag',
+        max_length = 128,
         blank=True,
         null=True,
     )
