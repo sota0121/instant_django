@@ -48,8 +48,7 @@ class Item(models.Model):
     # おすすめフラグ
     recommended = models.BooleanField(
         verbose_name='おすすめフラグ',
-        blank=True,
-        null=True,
+        default=False
     )
 
     # 以下、管理項目
